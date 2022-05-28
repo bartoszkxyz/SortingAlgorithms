@@ -8,18 +8,20 @@ namespace Sortowanie
 {
     class Options
     {
+
         static public void InsertionOption()
         {
-            Console.WriteLine("---- Insertion Sort ---- \nSize \t Time(ms)");
+            using StreamWriter file = new("Data.txt", append: true);
+            file.WriteLineAsync("---- Insertion Sort ---- \nSize \t Time(ms)");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
                 {
-                    case 0: Console.WriteLine("-- Random Array --"); break;
-                    case 1: Console.WriteLine("-- Constant Array --"); break;
-                    case 2: Console.WriteLine("-- Ascending Array --"); break;
-                    case 3: Console.WriteLine("-- Descending Array --"); break;
-                    case 4: Console.WriteLine("-- V-Shape Array --"); break;
+                    case 0: file.WriteLineAsync("-- Random Array --"); break;
+                    case 1: file.WriteLineAsync("-- Constant Array --"); break;
+                    case 2: file.WriteLineAsync("-- Ascending Array --"); break;
+                    case 3: file.WriteLineAsync("-- Descending Array --"); break;
+                    case 4: file.WriteLineAsync("-- V-Shape Array --"); break;
                 }
                 for (int i = 50000; i <= 200000; i += 10000)
                 {
@@ -37,22 +39,24 @@ namespace Sortowanie
                     Algorithms.InsertionSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{i} \t {watch.ElapsedMilliseconds}");
+                    //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
                 }
             }
         }        
         static public void SelectionOption()
         {
-            Console.WriteLine("---- Selection Sort ---- \nSize \t Time(ms)");
+            using StreamWriter file = new("Data.txt", append: true);
+            file.WriteLineAsync("---- Selection Sort ---- \nSize \t Time(ms)");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
                 {
-                    case 0: Console.WriteLine("-- Random Array --"); break;
-                    case 1: Console.WriteLine("-- Constant Array --"); break;
-                    case 2: Console.WriteLine("-- Ascending Array --"); break;
-                    case 3: Console.WriteLine("-- Descending Array --"); break;
-                    case 4: Console.WriteLine("-- V-Shape Array --"); break;
+                    case 0: file.WriteLineAsync("-- Random Array --"); break;
+                    case 1: file.WriteLineAsync("-- Constant Array --"); break;
+                    case 2: file.WriteLineAsync("-- Ascending Array --"); break;
+                    case 3: file.WriteLineAsync("-- Descending Array --"); break;
+                    case 4: file.WriteLineAsync("-- V-Shape Array --"); break;
                 }
                 for (int i = 50000; i <= 200000; i += 10000)
                 {
@@ -70,22 +74,23 @@ namespace Sortowanie
                     Algorithms.SelectionSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{i} \t {watch.ElapsedMilliseconds}");
                 }
             }
         }        
         static public void CocktailOption()
         {
-            Console.WriteLine("---- Cocktail Sort ---- \nSize \t Time(ms)");
+            using StreamWriter file = new("Data.txt", append: true);
+            file.WriteLineAsync("---- Cocktail Sort ---- \nSize \t Time(ms)");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
                 {
-                    case 0: Console.WriteLine("-- Random Array --"); break;
-                    case 1: Console.WriteLine("-- Constant Array --"); break;
-                    case 2: Console.WriteLine("-- Ascending Array --"); break;
-                    case 3: Console.WriteLine("-- Descending Array --"); break;
-                    case 4: Console.WriteLine("-- V-Shape Array --"); break;
+                    case 0: file.WriteLineAsync("-- Random Array --"); break;
+                    case 1: file.WriteLineAsync("-- Constant Array --"); break;
+                    case 2: file.WriteLineAsync("-- Ascending Array --"); break;
+                    case 3: file.WriteLineAsync("-- Descending Array --"); break;
+                    case 4: file.WriteLineAsync("-- V-Shape Array --"); break;
                 }
                 for (int i = 50000; i <= 200000; i += 10000)
                 {
@@ -103,22 +108,23 @@ namespace Sortowanie
                     Algorithms.CocktailSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{i} \t {watch.ElapsedMilliseconds}");
                 }
             }
         }        
         static public void HeapOption()
         {
-            Console.WriteLine("---- Heap Sort ---- \nSize \t Time(ms)");
+            using StreamWriter file = new("Data.txt", append: true);
+            file.WriteLineAsync("---- Heap Sort ---- \nSize \t Time(ms)");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
                 {
-                    case 0: Console.WriteLine("-- Random Array --"); break;
-                    case 1: Console.WriteLine("-- Constant Array --"); break;
-                    case 2: Console.WriteLine("-- Ascending Array --"); break;
-                    case 3: Console.WriteLine("-- Descending Array --"); break;
-                    case 4: Console.WriteLine("-- V-Shape Array --"); break;
+                    case 0: file.WriteLineAsync("-- Random Array --"); break;
+                    case 1: file.WriteLineAsync("-- Constant Array --"); break;
+                    case 2: file.WriteLineAsync("-- Ascending Array --"); break;
+                    case 3: file.WriteLineAsync("-- Descending Array --"); break;
+                    case 4: file.WriteLineAsync("-- V-Shape Array --"); break;
                 }
                 for (int i = 50000; i <= 200000; i += 10000)
                 {
@@ -136,21 +142,10 @@ namespace Sortowanie
                     Algorithms.HeapSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+                    //Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
                 }
             }
         }        
-        static public void Option(int op)
-        {
-            switch (op)
-            {
-                case 1: InsertionOption(); break;
-                case 2: SelectionOption(); break;
-                case 3: CocktailOption(); break;
-                case 4: HeapOption(); break;
-                default:
-                    break;
-            }
-        }
     }
 }

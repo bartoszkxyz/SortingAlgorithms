@@ -10,16 +10,20 @@
             var option = 0;
             do
             {
+                Console.WriteLine("---- Choose Sorting Method ----");
                 Console.WriteLine("1. Insertion Sort.");
                 Console.WriteLine("2. Selection Sort.");
                 Console.WriteLine("3. Cocktail Sort.");
                 Console.WriteLine("4. Heap Sort.");
                 Console.WriteLine("5. Exit.");
-                option = int.Parse(Console.ReadLine());
-                
+                option= int.Parse(Console.ReadLine());
+
                 switch (option)
                 {
-                    default: Console.Clear(); Options.Option(option); break;
+                    case 1: Console.Clear(); Options.InsertionOption(); break;
+                    case 2: Console.Clear(); Options.SelectionOption(); break;
+                    case 3: Console.Clear(); Options.CocktailOption(); break;
+                    case 4: Console.Clear(); Options.HeapOption(); break;
                     case 5: Console.Clear(); return;
                 }
             } while (option != 5);
