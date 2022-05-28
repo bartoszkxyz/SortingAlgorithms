@@ -3,24 +3,26 @@
     internal class Driver
     {
         //declaration of rng
-        static Random rnd = new Random(Guid.NewGuid().GetHashCode());
-        
-        
+        static public Random rnd = new Random(Guid.NewGuid().GetHashCode());
+
         static void Main(string[] args)
         {
-            Console.WriteLine($"Metoda \t 50k \t 60k \t 70k \t 80k \t 90k \t 100k \t 110k \t 120k \t 130k \t 140k \t 150k \t 160k \t 170k \t 180k \t 190k \t 200k");
-            for (int i = 50000; i < 200000; i+=10000)
+            var option = 0;
+            do
             {
-                int[] NumbersToSort = new int[i];
-                Generators.GenerateRandomArray(NumbersToSort, rnd);
-                //start pomiaru czasu
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-                Algorithms.InsertionSort(NumbersToSort);
-                watch.Stop();
-                Console.Write(watch.ElapsedMilliseconds.ToString() + " \t ");
-                //stop pomiaru czasu
-            }
-
+                Console.WriteLine("1. Insertion Sort.");
+                Console.WriteLine("2. Selection Sort.");
+                Console.WriteLine("3. Cocktail Sort.");
+                Console.WriteLine("4. Heap Sort.");
+                Console.WriteLine("5. Exit.");
+                option = int.Parse(Console.ReadLine());
+                
+                switch (option)
+                {
+                    default: Console.Clear(); Options.Option(option); break;
+                    case 5: Console.Clear(); return;
+                }
+            } while (option != 5);
         }
     }
 }

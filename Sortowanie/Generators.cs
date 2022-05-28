@@ -9,19 +9,19 @@ namespace Sortowanie
     class Generators
     {
         //arrays generators
-        public static void GenerateAscendingArray(int[] t)
+        public static void GenerateAscending(int[] t)
         {
             for (int i = 0; i < t.Length; ++i) t[i] = i;
         }
-        public static void GenerateDescendingArray(int[] t)
+        public static void GenerateDescending(int[] t)
         {
             for (int i = (t.Length); i > 0; i--) t[i - 1] = i;
         }
-        public static void GenerateRandomArray(int[] t, Random rnd, int maxValue = int.MaxValue)
+        public static void GenerateRandom(int[] t, Random rnd, int maxValue = int.MaxValue)
         {
             for (int i = 0; i < t.Length; ++i) t[i] = rnd.Next(maxValue);
         }
-        public static void GenerateConstansArray(int[] t)
+        public static void GenerateConstans(int[] t)
         {
             for (int i = 0; i < t.Length; ++i) t[i] = 10000;
         }
