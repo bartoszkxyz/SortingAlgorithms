@@ -15,7 +15,9 @@
                 Console.WriteLine("2. Selection Sort.");
                 Console.WriteLine("3. Cocktail Sort.");
                 Console.WriteLine("4. Heap Sort.");
-                Console.WriteLine("5. Exit.");
+                Console.WriteLine("5. Quick Sort Rec.");
+                Console.WriteLine("6. Quick Sort Iter.");
+                Console.WriteLine("7. Exit.");
                 option= int.Parse(Console.ReadLine());
 
                 switch (option)
@@ -24,9 +26,11 @@
                     case 2: Console.Clear(); Options.SelectionOption(); break;
                     case 3: Console.Clear(); Options.CocktailOption(); break;
                     case 4: Console.Clear(); Options.HeapOption(); break;
-                    case 5: Console.Clear(); return;
+                    case 5: Console.Clear(); Options.QuickSortRecOption(); break;
+                    case 6: Console.Clear(); Options.QuickSortIterOption(); break;
+                    case 7: Console.Clear(); return;
                 }
-            } while (option != 5);
+            } while (option != 7);
         }
     }
 }

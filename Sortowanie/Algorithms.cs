@@ -102,5 +102,61 @@ namespace Sortowanie
             }
         }
         //-------------Heap Sort
+
+        //-------------Quick Sort Rec
+        public static void QuickSortRec(int[] t, int l, int p)
+        {
+            int i, j, x;
+            i = l;
+            j = p;
+            x = t[(l + p) / 2]; // (pseudo)mediana
+            do
+            {
+                while (t[i] < x) i++; // przesuwamy indeksy z lewej
+                while (x < t[j]) j--; // przesuwamy indeksy z prawej
+                if (i <= j) // jeśli nie minęliśmy się indeksami (koniec kroku)
+                { // zamieniamy elementy
+                    int buf = t[i]; t[i] = t[j]; t[j] = buf;
+                    i++; j--;
+                }
+            }
+            while (i <= j);
+            if (l < j) QuickSortRec(t, l, j); // sortujemy lewą część (jeśli jest)
+            if (i < p) QuickSortRec(t, i, p); // sortujemy prawą część (jeśli jest)
+        } /* qsort() */
+        //-------------Quick Sort Rec
+
+
+        //-------------Quick Sort Iter
+        public static void QuickSortIter(int[] t)
+        {
+            int i, j, l, p, sp;
+            int[] stos_l = new int[t.Length],
+            stos_p = new int[t.Length]; // przechowywanie żądań podziału
+            sp = 0; stos_l[sp] = 0; stos_p[sp] = t.Length - 1; // rozpoczynamy od całej tablicy
+            do
+            {
+                l = stos_l[sp]; p = stos_p[sp]; sp--; // pobieramy żądanie podziału
+                do
+                {
+                    int x;
+                    i = l; j = p; x = t[(l + p) / 2]; // analogicznie do wersji rekurencyjnej
+                    do
+                    {
+                        while (t[i] < x) i++;
+                        while (x < t[j]) j--;
+                        if (i <= j)
+                        {
+                            int buf = t[i]; t[i] = t[j]; t[j] = buf;
+                            i++; j--;
+                        }
+                    } while (i <= j);
+                    if (i < p) { sp++; stos_l[sp] = i; stos_p[sp] = p; } // ewentualnie dodajemy żądanie podziału
+                    p = j;
+                } while (l < p);
+            } while (sp >= 0); // dopóki stos żądań nie będzie pusty
+        } /* qsort() */
+        //-------------Quick Sort Iter
+
     }
 }
