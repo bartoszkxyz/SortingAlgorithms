@@ -123,7 +123,7 @@ namespace Sortowanie
             while (i <= j);
             if (l < j) QuickSortRec(t, l, j); // sortujemy lewą część (jeśli jest)
             if (i < p) QuickSortRec(t, i, p); // sortujemy prawą część (jeśli jest)
-        } /* qsort() */
+        }
         //-------------Quick Sort Rec
 
 
@@ -155,7 +155,7 @@ namespace Sortowanie
                     p = j;
                 } while (l < p);
             } while (sp >= 0); // dopóki stos żądań nie będzie pusty
-        } /* qsort() */
+        }
         //-------------Quick Sort Iter
 
     }

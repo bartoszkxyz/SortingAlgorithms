@@ -39,7 +39,7 @@ namespace Sortowanie
                     Algorithms.InsertionSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                     //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
                 }
             }
@@ -74,7 +74,7 @@ namespace Sortowanie
                     Algorithms.SelectionSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
         }
@@ -108,7 +108,7 @@ namespace Sortowanie
                     Algorithms.CocktailSort(NumbersToSort);
                     watch.Stop();
                     //stop pomiaru czasu
-                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace Sortowanie
                     watch.Stop();
                     //stop pomiaru czasu
                     //Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
-                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
         }
@@ -179,7 +179,7 @@ namespace Sortowanie
                         watch.Stop();
                         //stop pomiaru czasu
                         //Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
-                        file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                        file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                     }
                 }
             }
@@ -214,7 +214,7 @@ namespace Sortowanie
                     watch.Stop();
                     //stop pomiaru czasu
                     //Console.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
-                    file.WriteLineAsync($"{i},{watch.ElapsedMilliseconds}");
+                    file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
         }
