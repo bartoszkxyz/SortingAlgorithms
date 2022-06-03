@@ -18,7 +18,7 @@
                 Console.WriteLine("5. Quick Sort Rec.");
                 Console.WriteLine("6. Quick Sort Iter.");
                 Console.WriteLine("7. Exit.");
-                option= int.Parse(Console.ReadLine());
+                option = int.Parse(Console.ReadLine());
 
                 switch (option)
                 {

@@ -50,14 +50,18 @@ namespace Sortowanie
                 for (int j = Right; j >= Left; j--) // przesiewanie od dołu
                     if (t[j - 1] > t[j])
                     {
-                        int Buf = t[j - 1]; t[j - 1] = t[j]; t[j] = Buf;
+                        int Buf = t[j - 1]; 
+                        t[j - 1] = t[j]; 
+                        t[j] = Buf;
                         k = j; // zamiana elementów i zapamiętanie indeksu
                     }
                 Left = k + 1; // zacieśnienie lewej granicy
                 for (int j = Left; j <= Right; j++) // przesiewanie od góry
                     if (t[j - 1] > t[j])
                     {
-                        int Buf = t[j - 1]; t[j - 1] = t[j]; t[j] = Buf;
+                        int Buf = t[j - 1]; 
+                        t[j - 1] = t[j]; 
+                        t[j] = Buf;
                         k = j; // zamiana elementów i zapamiętanie indeksu
                     }
                 Right = k - 1; // zacieśnienie prawej granicy
@@ -67,7 +71,7 @@ namespace Sortowanie
         //^Coctail Sort
         //-------------Heap Sort
         public static void Heapify(int[] t, uint left, uint right)
-        { // procedura budowania/naprawiania kopca
+        {
             uint i = left,
             j = 2 * i + 1;
             int buf = t[i]; // ojciec
@@ -116,8 +120,11 @@ namespace Sortowanie
                 while (x < t[j]) j--; // przesuwamy indeksy z prawej
                 if (i <= j) // jeśli nie minęliśmy się indeksami (koniec kroku)
                 { // zamieniamy elementy
-                    int buf = t[i]; t[i] = t[j]; t[j] = buf;
-                    i++; j--;
+                    int buf = t[i]; 
+                    t[i] = t[j]; 
+                    t[j] = buf;
+                    i++; 
+                    j--;
                 }
             }
             while (i <= j);
@@ -132,29 +139,41 @@ namespace Sortowanie
         {
             int i, j, l, p, sp;
             int[] stos_l = new int[t.Length],
-            stos_p = new int[t.Length]; // przechowywanie żądań podziału
-            sp = 0; stos_l[sp] = 0; stos_p[sp] = t.Length - 1; // rozpoczynamy od całej tablicy
+            stos_p = new int[t.Length]; 
+            sp = 0; 
+            stos_l[sp] = 0; 
+            stos_p[sp] = t.Length - 1; 
             do
             {
-                l = stos_l[sp]; p = stos_p[sp]; sp--; // pobieramy żądanie podziału
+                l = stos_l[sp]; 
+                p = stos_p[sp]; sp--; 
                 do
                 {
                     int x;
-                    i = l; j = p; x = t[(l + p) / 2]; // analogicznie do wersji rekurencyjnej
+                    i = l; j = p; 
+                    //x = t[(l + p) / 2];
+                    //x = t[Driver.rnd.Next(i, j)];
+                    x = t[j]; 
                     do
                     {
                         while (t[i] < x) i++;
                         while (x < t[j]) j--;
                         if (i <= j)
                         {
-                            int buf = t[i]; t[i] = t[j]; t[j] = buf;
+                            int buf = t[i]; 
+                            t[i] = t[j]; 
+                            t[j] = buf;
                             i++; j--;
                         }
                     } while (i <= j);
-                    if (i < p) { sp++; stos_l[sp] = i; stos_p[sp] = p; } // ewentualnie dodajemy żądanie podziału
+                    if (i < p) {
+                        sp++; 
+                        stos_l[sp] = i; 
+                        stos_p[sp] = p; 
+                    }
                     p = j;
                 } while (l < p);
-            } while (sp >= 0); // dopóki stos żądań nie będzie pusty
+            } while (sp >= 0);
         }
         //-------------Quick Sort Iter
 
