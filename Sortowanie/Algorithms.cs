@@ -151,9 +151,9 @@ namespace Sortowanie
                 {
                     int x;
                     i = l; j = p; 
-                    //x = t[(l + p) / 2];
+                    x = t[(l + p) / 2];
                     //x = t[Driver.rnd.Next(i, j)];
-                    x = t[j]; 
+                    //x = t[j]; 
                     do
                     {
                         while (t[i] < x) i++;

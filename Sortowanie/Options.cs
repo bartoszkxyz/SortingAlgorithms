@@ -12,7 +12,7 @@ namespace Sortowanie
         static public void InsertionOption()
         {
             using StreamWriter file = new("Data.txt", append: true);
-            file.WriteLineAsync("---- Insertion Sort ---- \nSize \t Time(ms)");
+            file.WriteLineAsync("---- Insertion Sort ----");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
@@ -43,11 +43,26 @@ namespace Sortowanie
                     //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
                 }
             }
+            /*file.WriteLineAsync("-- Ascending Array --");
+            for (int i = 50000; i <= 200000; i += 10000)
+            {
+                int[] NumbersToSort = new int[i];
+                Generators.GenerateAscending(NumbersToSort);
+                //start pomiaru czasu
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                Algorithms.InsertionSort(NumbersToSort);
+                watch.Stop();
+                //stop pomiaru czasu
+                file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
+                //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+            }*/
+
+
         }
         static public void SelectionOption()
         {
             using StreamWriter file = new("Data.txt", append: true);
-            file.WriteLineAsync("---- Selection Sort ---- \nSize \t Time(ms)");
+            file.WriteLineAsync("---- Selection Sort ----");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
@@ -77,11 +92,24 @@ namespace Sortowanie
                     file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
+            /*file.WriteLineAsync("-- Ascending Array --");
+            for (int i = 50000; i <= 200000; i += 10000)
+            {
+                int[] NumbersToSort = new int[i];
+                Generators.GenerateAscending(NumbersToSort);
+                //start pomiaru czasu
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                Algorithms.SelectionSort(NumbersToSort);
+                watch.Stop();
+                //stop pomiaru czasu
+                file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
+                //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+            }*/
         }
         static public void CocktailOption()
         {
             using StreamWriter file = new("Data.txt", append: true);
-            file.WriteLineAsync("---- Cocktail Sort ---- \nSize \t Time(ms)");
+            file.WriteLineAsync("---- Cocktail Sort ----");
             for (int j = 0; j < 5; j++)
             {
                 switch (j)
@@ -111,6 +139,19 @@ namespace Sortowanie
                     file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
+            /*file.WriteLineAsync("-- Ascending Array --");
+            for (int i = 50000; i <= 200000; i += 10000)
+            {
+                int[] NumbersToSort = new int[i];
+                Generators.GenerateAscending(NumbersToSort);
+                //start pomiaru czasu
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                Algorithms.CocktailSort(NumbersToSort);
+                watch.Stop();
+                //stop pomiaru czasu
+                file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
+                //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+            }*/
         }
         static public void HeapOption()
         {
@@ -146,6 +187,19 @@ namespace Sortowanie
                     file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
                 }
             }
+            /*file.WriteLineAsync("-- Ascending Array --");
+            for (int i = 50000; i <= 200000; i += 10000)
+            {
+                int[] NumbersToSort = new int[i];
+                Generators.GenerateAscending(NumbersToSort);
+                //start pomiaru czasu
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                Algorithms.HeapSort(NumbersToSort);
+                watch.Stop();
+                //stop pomiaru czasu
+                file.WriteLineAsync($"{watch.ElapsedMilliseconds}");
+                //streamWriter.WriteLine($"{i} \t {watch.ElapsedMilliseconds}");
+            }*/
         }
 
             static public void QuickSortRecOption()
@@ -176,7 +230,7 @@ namespace Sortowanie
             for (int i = 50000; i <= 200000; i += 10000)
             {
                 int[] NumbersToSort = new int[i];
-                Generators.GenerateRandom(NumbersToSort, Driver.rnd);
+                Generators.GenerateAShape(NumbersToSort);
 
                 //start pomiaru czasu
                 var watch = System.Diagnostics.Stopwatch.StartNew();
