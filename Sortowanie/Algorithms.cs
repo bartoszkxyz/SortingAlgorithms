@@ -13,14 +13,14 @@ namespace Sortowanie
         {
             for (uint i = 1; i < t.Length; i++)
             {
-                uint j = i; // elementy 0 .. i-1 są już posortowane
-                int Buf = t[j]; // bierzemy i-ty (j-ty) element
+                uint j = i;
+                int Buf = t[j];
                 while ((j > 0) && (t[j - 1] > Buf))
-                { // przesuwamy elementy
+                {
                     t[j] = t[j - 1];
                     j--;
                 }
-                t[j] = Buf; // i wpisujemy na docelowe miejsce
+                t[j] = Buf;
             }
         }
         //^Insertion Sort
@@ -29,15 +29,15 @@ namespace Sortowanie
             uint k;
             for (uint i = 0; i < (t.Length - 1); i++)
             {
-                int Buf = t[i]; // bierzemy i-ty element
-                k = i; // i jego indeks
+                int Buf = t[i];
+                k = i;
                 for (uint j = i + 1; j < t.Length; j++)
-                    if (t[j] < Buf) // szukamy najmniejszego z prawej
+                    if (t[j] < Buf)
                     {
                         k = j;
                         Buf = t[j];
                     }
-                t[k] = t[i]; // zamieniamy i-ty z k-tym
+                t[k] = t[i];
                 t[i] = Buf;
             }
         }
@@ -47,24 +47,24 @@ namespace Sortowanie
             int Left = 1, Right = t.Length - 1, k = t.Length - 1;
             do
             {
-                for (int j = Right; j >= Left; j--) // przesiewanie od dołu
+                for (int j = Right; j >= Left; j--)
                     if (t[j - 1] > t[j])
                     {
                         int Buf = t[j - 1]; 
                         t[j - 1] = t[j]; 
                         t[j] = Buf;
-                        k = j; // zamiana elementów i zapamiętanie indeksu
+                        k = j;
                     }
-                Left = k + 1; // zacieśnienie lewej granicy
-                for (int j = Left; j <= Right; j++) // przesiewanie od góry
+                Left = k + 1;
+                for (int j = Left; j <= Right; j++)
                     if (t[j - 1] > t[j])
                     {
                         int Buf = t[j - 1]; 
                         t[j - 1] = t[j]; 
                         t[j] = Buf;
-                        k = j; // zamiana elementów i zapamiętanie indeksu
+                        k = j;
                     }
-                Right = k - 1; // zacieśnienie prawej granicy
+                Right = k - 1;
             }
             while (Left <= Right);
         }
@@ -74,15 +74,15 @@ namespace Sortowanie
         {
             uint i = left,
             j = 2 * i + 1;
-            int buf = t[i]; // ojciec
-            while (j <= right) // przesiewamy do dna stogu
+            int buf = t[i];
+            while (j <= right)
             {
-                if (j < right) // wybieramy większego syna
+                if (j < right)
                     if (t[j] < t[j + 1]) j++;
                 if (buf >= t[j]) break;
                 t[i] = t[j];
                 i = j;
-                j = 2 * i + 1; // przechodzimy do dzieci syna
+                j = 2 * i + 1;
             }
             t[i] = buf;
         }
@@ -91,18 +91,18 @@ namespace Sortowanie
         {
             uint left = ((uint)t.Length / 2),
             right = (uint)t.Length - 1;
-            while (left > 0) // budujemy kopiec idąc od połowy tablicy
+            while (left > 0)
             {
                 left--;
                 Heapify(t, left, right);
             }
-            while (right > 0) // rozbieramy kopiec
+            while (right > 0)
             {
                 int buf = t[left];
                 t[left] = t[right];
-                t[right] = buf; // największy element
-                right--; // kopiec jest mniejszy
-                Heapify(t, left, right); // ale trzeba go naprawić
+                t[right] = buf;
+                right--;
+                Heapify(t, left, right);
             }
         }
         //-------------Heap Sort
@@ -113,13 +113,13 @@ namespace Sortowanie
             int i, j, x;
             i = l;
             j = p;
-            x = t[(l + p) / 2]; // (pseudo)mediana
+            x = t[(l + p) / 2];
             do
             {
-                while (t[i] < x) i++; // przesuwamy indeksy z lewej
-                while (x < t[j]) j--; // przesuwamy indeksy z prawej
-                if (i <= j) // jeśli nie minęliśmy się indeksami (koniec kroku)
-                { // zamieniamy elementy
+                while (t[i] < x) i++;
+                while (x < t[j]) j--;
+                if (i <= j)
+                {
                     int buf = t[i]; 
                     t[i] = t[j]; 
                     t[j] = buf;
@@ -128,8 +128,8 @@ namespace Sortowanie
                 }
             }
             while (i <= j);
-            if (l < j) QuickSortRec(t, l, j); // sortujemy lewą część (jeśli jest)
-            if (i < p) QuickSortRec(t, i, p); // sortujemy prawą część (jeśli jest)
+            if (l < j) QuickSortRec(t, l, j);
+            if (i < p) QuickSortRec(t, i, p);
         }
         //-------------Quick Sort Rec
 
